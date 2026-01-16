@@ -26,4 +26,18 @@ class DebugTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+    public function test_enviroment_debug()
+    {
+        $appName = env('YOUTUBE_API_KEY');
+
+        self::assertEquals("AudyariW", $appName);
+    }
+
+    public function test_Default_Value() // ini adalah method untuk menguji nilai konfigurasi app.debug
+    {
+        $appEnv = env('APP_ENV', 'development');
+
+        self::assertEquals("testing", $appEnv);
+    }
 }
