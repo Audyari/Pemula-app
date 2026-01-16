@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Services\Riak\Connection;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::get('/greeting', function () {
 });
 
 Route::get('/user', [UserController::class, 'index']);
+
+Route::get('/riak-test', function (Connection $riak) {
+    dd($riak->connect());
+});
